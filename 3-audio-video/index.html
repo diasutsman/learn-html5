@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio & Video</title>
+  <style>
+    /** {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-image: linear-gradient(to right, black, transparent);
+      color: rgba(255, 255, 255, .5);
+      font-size: 3em;
+
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .video-bg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      
+      min-height: 100%;
+      min-width: 100%;
+      z-index: -1;
+    }*/
+
+  </style>
+</head>
+<body>
+  <!--<audio src="audio/orange.mp3" controls></audio>-->
+
+  <!-- Audio -->
+  <!-- Attributes:
+        1. src
+        2. controls
+        3. preload
+        4. autoplay
+        5. loop -->
+  <!--<figure>
+    <figcaption>Listen to "7!! - Orange"</figcaption>
+    <audio controls loop muted>
+      <source src="audio/orange.ogg" type="audio/ogg">
+      <source src="audio/orange.mp3" type="audio/mpeg">
+    </audio>
+  </figure>-->
+
+  <!-- Video -->
+  <!-- Attributes:
+        1. src
+        2. controls
+        3. preload
+        4. autoplay
+        5. loop 
+        6. poster
+        7. muted
+        8. width
+        9. height -->
+
+    <!-- if video is muted and autoplay, it can be played when page loaded -->
+
+  <!--<video src="video/burung.mp4" width="400" controls></video>-->
+
+  <!--<figure>
+    <figcaption>Burung</figcaption>
+    <video width="400" poster="img/burung.jpg" loop autoplay muted>
+      <source src="video/burung.webm" type="video/webm">
+      <source src="video/burung.mp4" type="video/mp4">
+      Browser tidak mendukung tag <code>video</code>
+    </video>
+  </figure>-->
+
+
+  <!--<div class="hero">
+    <h1>Welcome to my site</h1>
+    <video class="video-bg" src="video/burung.webm" autoplay muted loop></video>
+  </div>-->
+
+  <!-- Track -->
+  <!-- Attributes:
+        1. src
+        2. kind 
+        3. title
+        4. srclang: lang code-->
+
+  <video controls width="400">
+    <source src="video/1-apa-itu-html5.mp4" type="video/mp4">
+    <track src="captions/caption2.vtt" kind="captions" title="Bahasa Indonesia" srclang="id"> 
+    <track src="captions/caption2.vtt" kind="captions" title="English" srclang="en"> 
+  </video>
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/Q2VqCG13ejA" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</body>
+</html>

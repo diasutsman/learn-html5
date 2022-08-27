@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    form {
+      width: 600px;
+      padding: 20px;
+    }
+
+    form div {
+      margin: 10px;
+    }
+
+    label {
+      display: block;
+    }
+
+    /* when invalid style */
+    input:invalid,
+    input:required:invalid {
+      border: none;
+      outline: 2px solid red;
+      border-radius: 2px;
+    }
+
+    /* when valid style */
+    input:valid,
+    input:required {
+      border: 1px solid black;
+      outline: inherit;
+      border-radius: inherit;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- autocomplete is used for controlling the autocomplete in individual input or entire form -->
+  <!-- novalidate is used for ignoring all validation in the form -->
+  <form action="" method="post" autocomplete="off" novalidate>
+
+    <!-- Text input type -->
+    <div>
+      <label for="name">Masukkan nama: </label>
+
+      <!-- set validity message with setCustomValidity() function -->
+      <input type="text" name="name" id="name" autofocus required minlength="2" maxlength="5" oninvalid="this.setCustomValidity('Ini harus di isi')" oninput="this.setCustomValidity('')">
+
+    </div>
+
+    <!-- Email input type -->
+    <div>
+      <label for="email">Masukkan email: </label>
+      <input type="email" name="email" id="email">
+    </div>
+
+    <!-- Phone number input type -->
+    <div>
+      <label for="nohp">Masukkan No HP: </label>
+      <input type="tel" name="nohp" id="nohp" pattern="^(\+62|62|0)8[^0][0-9]{6,9}$">
+    </div>
+
+    <!-- URL input type -->
+    <div>
+      <label for="website">Masukkan URL website: </label>
+      <input type="url" name="website" id="website">
+    </div>
+
+    <!-- Number input type -->
+    <div>
+      <label for="angka">Masukkan angka: </label>
+      <input type="number" name="angka" id="angka" min="10" max="100" step="5">
+    </div>
+
+    <!-- Slider input type -->
+    <div>
+      <label for="slider">Masukkan angka: </label>
+      <span class="awal"></span>
+      <input type="range" name="slider" id="slider" min="0" max="100" step="5">
+      <span class="akhir"></span>
+    </div>
+
+    <!-- Date picker input -->
+    <div>
+      <label for="tanggal">Masukkan tanggal: </label>
+      <input type="date" name="tanggal" id="tanggal">
+    </div>
+
+    <!-- color input -->
+    <div>
+      <label for="warna">Masukkan warna: </label>
+      <input type="color" name="warna" id="warna">
+      <span class="hex"></span>
+    </div>
+
+    <!-- text input with regex -->
+    <div>
+      <label for="kodepos">Masukkan kodepos: </label>
+      <!-- Regex in html let's gooooo -->
+      <input type="text" name="kodepos" id="kodepos" pattern="^([^0])[0-9]{4}$">
+    </div>
+
+    <!-- submit button -->
+    <div>
+      <button type="submit">Kirim!</button>
+    </div>
+  </form>
+
+  <script>
+    const slider = document.getElementById('slider');
+    const awal = document.querySelector('span.awal');
+    const akhir = document.querySelector('span.akhir');
+
+    // set nilai awalnya bersadarkan
+
+    // nilai min
+    awal.innerText = slider.min
+
+    // value sekarang
+    akhir.innerText = slider.value
+
+    // mengganti isi text span akhir dengan value yang di input
+    slider.addEventListener('input', () => {
+      akhir.innerText = slider.value
+    })
+
+    const hex = document.querySelector('.hex')
+    const warna = document.getElementById('warna')
+
+    // initial value with the current value from color picker
+    hex.innerText = warna.value
+
+    // mengganti isi text span akhir dengan value yang di input
+    // dan mengganti warna berdasarkan warna yg dipilih
+    warna.addEventListener('input', () => {
+      hex.innerText = warna.value
+      hex.style.color = warna.value
+    })
+    
+  </script>
+
+</body>
+
+</html>

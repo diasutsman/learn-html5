@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Accessibility</title>
+
+  <style>
+    body {
+      background-color: #ddd;
+    }
+
+    h1 {
+      color: #999;
+    }
+
+  </style>
+  
+</head>
+
+<body>
+
+  <h1>Hello WPU!</h1>
+
+  <!-- Label can be used as the parent of an input -->
+  <label>Nama :
+    <input type="text" name="nama">
+  </label>
+
+  <!-- or as the sibling and connect them with the same value in 'for' in label and 'id' in input -->
+  <label for="jurusan">Jurusan :</label>
+  <select name="jurusan" id="jurusan">
+    <option value="if">Teknik Informatika</option>
+    <option value="ti">Teknik Industri</option>
+  </select>
+
+  <button style="margin-bottom: 30px;" onclick="alert('Tombol asli!')">Kirim!</button>
+
+  <!-- Use tabindex so that any non-interactive elements can be selected when pressing tabs -->
+
+  <!-- tabindex equals "1" => element is in the first in tabs queue -->
+  <!-- tabindex equals "0" => element is following the tabs queue -->
+
+  <!-- These non-interactive element cannot perform its clicking action when space or enter is pressed -->
+  <!-- so that you would have to add that feature with the help of javascript (SEE CODE 1) -->
+  <div tabindex="0" onclick="showAlert('Hello!')" id="button1">Tombol 1</div>
+  <div tabindex="0">Tombol 2</div>
+  <div tabindex="0">Tombol 3</div>
+
+  <script>
+    const showAlert = msg => alert(msg)
+
+    // <===== CODE 1 =====>
+    const button1 = document.getElementById('button1')
+    button1.addEventListener('keydown', (e) => {
+      // check if the pressed key is space or enter
+      // then perform click action to button1
+      if(['Enter', ' '].includes(e.key))button1.click()
+    })
+
+  </script>
+
+
+</body>
+
+</html>
